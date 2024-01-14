@@ -4,11 +4,11 @@ const mysql = require('mysql2');
 
 const app = express();
 
-// Use CORS middleware
+//  middleware
 app.use(cors());
 app.use(express.json()); // Enable JSON request body parsing
 
-// Create MySQL connection
+// SQL server
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
@@ -19,7 +19,7 @@ const db = mysql.createConnection({
   },
 });
 
-// Check MySQL connection
+// SQL connection
 db.connect((err) => {
   if (err) {
     console.error('Error connecting to MySQL:', err);
@@ -28,7 +28,7 @@ db.connect((err) => {
   }
 });
 
-// Routes
+
 app.get('/tasks', (req, res) => {
   // Fetch tasks from the database
   db.query('SELECT * FROM tasks', (err, results) => {
