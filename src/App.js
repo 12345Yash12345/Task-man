@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
-
+// import Login from './Login'
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -115,14 +115,14 @@ function App() {
             <li key={index}>
               <strong>{task.title}</strong>
               <p>{task.description}</p>
-              <button onClick={() => editTask(index)}>Edit</button>
-              <button onClick={() => deleteTask(index)}>Delete</button>
+              <button className="edit" onClick={() => editTask(index)}>Edit</button>
+              <button className="del" onClick={() => deleteTask(index)}>Delete</button>
             </li>
           ))}
         </ul>
       ) : (
           <div>
-             <p>not tasks</p>
+             <p>Add Your Tasks</p>
 
           </div>
         )}
